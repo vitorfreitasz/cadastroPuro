@@ -4,7 +4,7 @@
 
 ## **ATENÇÃO!** :warning:
 
-### Este é apenas um pequeno projeto acadêmico, que visa revisar a utilização das tecnologias em sua forma _pura_, além de medir a velocidade de construção consciliada com a qualidade visual e com a implementação de validações no front-end.
+### Este é apenas um pequeno projeto acadêmico, que visa revisar a utilização das tecnologias em sua forma _pura_, além de medir a velocidade de construção consciliada com a qualidade visual e com a implementação de validações.
 
 _17/03/2024_ :hourglass:
 
