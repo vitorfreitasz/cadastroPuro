@@ -17,6 +17,7 @@ button:active{
 
 input{
     background-color: rgba(25, 25, 25, 0.61);
+    color: white;
     width: 15vw;
     height: 3vh;
     border-radius: 5px;
@@ -112,7 +113,8 @@ body{
 .text_error{
     color: red;
     font-size: 12px;
-    margin-top: 5px;
+    margin-top: 1px;
+    text-align: end;
 }
 
 .success{
@@ -138,8 +140,8 @@ body{
         color: white;
         border-radius: 5px;
         border: none;
-        width: 70vw;
-        height: 5vh;
+        width: 70svw;
+        height: 5svh;
         background-color: rgb(42, 187, 47);
         cursor: pointer;
         :active{
@@ -148,8 +150,8 @@ body{
     }
     input{
         background-color: rgba(25, 25, 25, 0.61);
-        width: 50vw;
-        height: 3vh;
+        width: 50svw;
+        height: 3svh;
         border-radius: 5px;
         padding: 10px;
         border: none;
@@ -157,8 +159,8 @@ body{
     #state{
         background-color: rgba(25, 25, 25, 0.61);
         color: white;
-        width: 55vw;
-        height: 5vh;
+        width: 55svw;
+        height: 5svh;
         border-radius: 5px;
         border: none;
     }
@@ -167,8 +169,8 @@ body{
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        width: 80vw;
-        height: 70vh;
+        width: 80svw;
+        height: 70svh;
         background-color: rgb(42, 187, 47);
         border-radius: 10px;
         padding: 20px 0px;
