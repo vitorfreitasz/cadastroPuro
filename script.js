@@ -1,6 +1,16 @@
+/* REGEX */
 const validateCpf = new RegExp("[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}");
 const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
 
+/* FUNCTIONS */
+
+function handleSubmit (){
+    let alertSuccess = document.getElementById('alertSuccess')
+    alertSuccess.style.opacity = 1;
+    setTimeout(() => {
+        alertSuccess.style.opacity = 0;
+    }, 2000);
+}
 function cpf(v) {
   v = v.replace(/\D/g, "");
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
@@ -8,6 +18,8 @@ function cpf(v) {
   v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
   return v;
 }
+
+/* DOM MANIPULATE */
 
 let form = document.getElementById("form_prevent");
 form.addEventListener("click", (e) => e.preventDefault());
@@ -70,11 +82,3 @@ states.map((state) => {
   statesString = `${statesString}<option value = ${state} >${state}</option>`;
 });
 selectField.innerHTML = statesString;
-
-function mostraAlgo (){
-    let alertSuccess = document.getElementById('alertSuccess')
-    alertSuccess.style.opacity = 1;
-    setTimeout(() => {
-        alertSuccess.style.opacity = 0;
-    }, 2000);
-}
