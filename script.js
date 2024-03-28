@@ -4,12 +4,44 @@ const validEmail = new RegExp("^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$");
 
 /* FUNCTIONS */
 
-function handleSubmit (){
-    let alertSuccess = document.getElementById('alertSuccess')
+function handleSubmit(item) {
+  let alertSuccess = document.getElementById("alertSuccess");
+  let alertError = document.getElementById("alertError");
+  let cpfField = document.getElementById("cpf").value;
+  let emailField = document.getElementById("email").value;
+  let passwordField = document.getElementById("password").value;
+  let selectField = document.getElementById("state").value;
+  let dateField = document.getElementById("date").value;
+  let nameField = document.getElementById("name").value;
+  console.log(typeof dateField);
+  console.log(
+    cpfField,
+    emailField,
+    passwordField,
+    selectField,
+    nameField,
+    dateField
+  );
+  if (
+    cpfField != "" &&
+    emailField != "" &&
+    passwordField != "" &&
+    dateField != "" &&
+    nameField != ""
+  ) {
     alertSuccess.style.opacity = 1;
+    console.log("oi");
     setTimeout(() => {
-        alertSuccess.style.opacity = 0;
+      alertSuccess.style.opacity = 0;
     }, 2000);
+    return;
+  } else {
+    alertError.style.opacity = 1;
+    setTimeout(() => {
+      alertError.style.opacity = 0;
+    }, 2000);
+    return;
+  }
 }
 function cpf(v) {
   v = v.replace(/\D/g, "");
@@ -17,6 +49,64 @@ function cpf(v) {
   v = v.replace(/(\d{3})(\d)/, "$1.$2");
   v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
   return v;
+}
+
+function mascaraData(val) {
+  var pass = val.value;
+  var expr = /[0123456789]/;
+
+  for (i = 0; i < pass.length; i++) {
+    var lchar = val.value.charAt(i);
+    var nchar = val.value.charAt(i + 1);
+
+    if (i == 0) {
+      if (lchar.search(expr) != 0 || lchar > 3) {
+        val.value = "";
+      }
+    } else if (i == 1) {
+      if (lchar.search(expr) != 0) {
+        var tst1 = val.value.substring(0, i);
+        val.value = tst1;
+        continue;
+      }
+
+      if (nchar != "/" && nchar != "") {
+        var tst1 = val.value.substring(0, i + 1);
+
+        if (nchar.search(expr) != 0)
+          var tst2 = val.value.substring(i + 2, pass.length);
+        else var tst2 = val.value.substring(i + 1, pass.length);
+
+        val.value = tst1 + "/" + tst2;
+      }
+    } else if (i == 4) {
+      if (lchar.search(expr) != 0) {
+        var tst1 = val.value.substring(0, i);
+        val.value = tst1;
+        continue;
+      }
+
+      if (nchar != "/" && nchar != "") {
+        var tst1 = val.value.substring(0, i + 1);
+
+        if (nchar.search(expr) != 0)
+          var tst2 = val.value.substring(i + 2, pass.length);
+        else var tst2 = val.value.substring(i + 1, pass.length);
+
+        val.value = tst1 + "/" + tst2;
+      }
+    }
+
+    if (i >= 6) {
+      if (lchar.search(expr) != 0) {
+        var tst1 = val.value.substring(0, i);
+        val.value = tst1;
+      }
+    }
+  }
+
+  if (pass.length > 10) val.value = val.value.substring(0, 10);
+  return true;
 }
 
 /* DOM MANIPULATE */
@@ -82,3 +172,5 @@ states.map((state) => {
   statesString = `${statesString}<option value = ${state} >${state}</option>`;
 });
 selectField.innerHTML = statesString;
+
+let dateField = document.getElementById("date").value;

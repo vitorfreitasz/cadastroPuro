@@ -121,6 +121,16 @@ body{
     color: rgb(0, 170, 0);
     margin-bottom: 0vh;
     opacity: 0;
+    font-size: 3svw;
+    transition: opacity 1s;
+    text-align: center;
+}
+
+.error{
+    color: rgb(170, 0, 0);
+    margin-bottom: 0vh;
+    opacity: 0;
+    font-size: 3svw;
     transition: opacity 1s;
     text-align: center;
 }
